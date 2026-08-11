@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speech Volume Boost</title>
+</head>
+<body>
+<h1>Speech Volume Boost</h1>
+<p>Amplifies NVDA speech volume for any synthesizer. The add-on applies a gain to NVDA's speech audio stream after the synthesizer has rendered it, so it works with eSpeak NG, OneCore, SAPI5, SAPI4 and third-party synthesizer drivers alike, without touching the synthesizer's own volume setting.</p>
+<h2>What it does</h2>
+<ul>
+<li>Intercepts every chunk of 16-bit speech PCM that NVDA feeds to its wave player and scales it by a user-configurable gain.</li>
+<li>Because all synthesizers route their audio through the same wave player, one hook covers them all.</li>
+<li>Only speech is affected; NVDA sounds, tones and other audio are left untouched.</li>
+</ul>
+<h2>Using the add-on</h2>
+<h3>Commands</h3>
+<table>
+<tbody>
+<tr>
+<td>NVDA+alt+g</td>
+<td>Toggles speech volume boost on or off.</td>
+</tr>
+<tr>
+<td>NVDA+alt+shift+g</td>
+<td>Increases the gain by 10 percent.</td>
+</tr>
+<tr>
+<td>NVDA+alt+control+g</td>
+<td>Decreases the gain by 10 percent.</td>
+</tr>
+<tr>
+<td>NVDA+alt+control+shift+g</td>
+<td>Reports the current state and gain.</td>
+</tr>
+</tbody>
+</table>
+<p>All commands can be remapped in NVDA's Input Gestures dialog under the "Speech Volume Boost" category.</p>
+<h3>Settings</h3>
+<p>Open NVDA's Settings dialog and choose the "Speech Volume Boost" category to:</p>
+<ul>
+<li>Enable or disable the boost.</li>
+<li>Set the gain from 0 to 400 percent. 100 percent means unchanged; 200 percent doubles the loudness and 400 percent quadruples it.</li>
+</ul>
+<p>Changes take effect immediately for speech spoken after the change.</p>
+<h2>Caveats</h2>
+<ul>
+<li>At high gains the signal can reach the maximum 16-bit sample value and clip. If you hear distortion, lower the gain.</li>
+<li>Audio that is not 16-bit PCM, and any non-speech output, is passed through unmodified.</li>
+</ul>
+<h2>Compatibility</h2>
+<p>Requires NVDA 2026.1 or later (64-bit). The add-on is implemented entirely in Python and bundles no binaries, so no 32-bit/64-bit native libraries are involved.</p>
+</body>
+</html>
